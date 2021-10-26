@@ -1,8 +1,17 @@
 package com.zhuyytt.api.utils;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+/**
+ * 请求返回内容
+ *
+ * @author zhuyytt
+ * @date 2021/1026
+ * @param <T>
+ */
+@Getter
+@Setter
 public class ResponseBody<T> {
 
     private String code;

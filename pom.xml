@@ -11,6 +11,10 @@
     <modules>
         <module>cloud_test_api</module>
         <module>cloud_test_provider_8081</module>
+        <module>cloud_test_eureka_7001</module>
+        <module>cloud_test_eureka_7002</module>
+        <module>cloud_test_provider_8082</module>
+        <module>cloud_test_customer_9001</module>
     </modules>
 
     <properties>
@@ -22,6 +26,7 @@
         <lombok-version>1.18.20</lombok-version>
         <druid-version>1.2.6</druid-version>
         <mybatis.plus-version>3.4.2</mybatis.plus-version>
+        <validation-version>2.0.1.Final</validation-version>
     </properties>
 
     <dependencyManagement>
@@ -61,6 +66,11 @@
                 <version>${mybatis.plus-version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis.plus-version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

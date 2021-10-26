@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud_test_provider_8081</artifactId>
+    <artifactId>cloud_test_provider_8082</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

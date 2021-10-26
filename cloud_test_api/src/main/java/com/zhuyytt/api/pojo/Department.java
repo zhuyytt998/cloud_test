@@ -3,16 +3,21 @@ package com.zhuyytt.api.pojo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-import lombok.experimental.Accessors;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * Department 简单的部门表
+ *
+ * @author zhuyytt
+ * @date 2021/10/26
  */
-@Data
-@Accessors
+@Getter
+@Setter
 @TableName("t_department")
-public class Department {
+public class Department extends Base {
 
     @TableId(type = IdType.AUTO)
     private Integer id;
@@ -20,16 +25,24 @@ public class Department {
     /**
      * dept_name 部门名称
      */
-    private String dept_name;
+    @NotBlank(message = "部门名称不能为空")
+    private String deptName;
 
     /**
      * dept_code 部门编号
      */
-    private String dept_code;
+    @NotBlank(message = "部门编号不能为空")
+    private String deptCode;
 
-    /**
-     * db_source 数据库信息
-     */
-    private String db_source;
-
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", deptName='" + deptName + '\'' +
+                ", deptCode='" + deptCode + '\'' +
+                ", dbSource='" + getDbSource() + '\'' +
+                ", createTime='" + getCreateTime() + '\'' +
+                ", updateTime='" + getUpdateTime() + '\'' +
+                '}';
+    }
 }
