@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotBlank;
 
@@ -16,6 +17,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Getter
 @Setter
+@Accessors(chain = true)
 @TableName("t_department")
 public class Department extends Base {
 

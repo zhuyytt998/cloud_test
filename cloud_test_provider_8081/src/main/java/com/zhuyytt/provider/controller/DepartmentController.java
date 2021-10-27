@@ -1,5 +1,6 @@
 package com.zhuyytt.provider.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zhuyytt.api.pojo.Department;
 import com.zhuyytt.api.utils.ResponseBody;
 import com.zhuyytt.provider.service.DepartmentService;
@@ -36,10 +37,16 @@ public class DepartmentController {
     }
 
     @GetMapping("list")
+    @HystrixCommand(fallbackMethod = "listFallBack")
     public ResponseBody list() {
         List<Department> list = departmentService.list();
         log.debug("查询部门信息: {}", list.toString());
         return ResponseBody.ok(list);
+    }
+
+    public ResponseBody listFallBack() {
+        log.debug("8081：服务器停止运作或异常！");
+        return ResponseBody.fail("8081：服务器停止运作或异常！");
     }
 
     @GetMapping("delete/{id}")

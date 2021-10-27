@@ -1,0 +1,19 @@
+server:
+  port: 80
+spring:
+  application:
+    name: cloud-test-zuul-proxy-80
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+zuul:
+  routes:
+    cloud-test-provider:
+      path: /provider/**
+  ignored-services: cloud-test-provider
+ribbon:
+  ConnectionTimeout: 500
+  ReadTimeout: 2000

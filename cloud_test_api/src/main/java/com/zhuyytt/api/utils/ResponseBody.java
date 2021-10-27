@@ -33,6 +33,10 @@ public class ResponseBody<T> {
         return new ResponseBody(OK_CODE, null, OK);
     }
 
+    public static ResponseBody ok(String msg) {
+        return new ResponseBody(OK_CODE, null, msg);
+    }
+
     public static <T> ResponseBody ok(T data) {
         return new ResponseBody(OK_CODE, data, OK);
     }
@@ -43,6 +47,10 @@ public class ResponseBody<T> {
 
     public static ResponseBody fail() {
         return new ResponseBody(FAIL_CODE, null, FAIL);
+    }
+
+    public static ResponseBody fail(String msg) {
+        return new ResponseBody(FAIL_CODE, null, msg);
     }
 
     public ResponseBody fail(T data) {
